@@ -26,6 +26,7 @@ turbook-view .toc ul li{
   margin-left: 10px;
   list-style: none;
   line-height: 30px;
+  white-space: nowrap;
 }
 turbook-view .toc ul li p.title{
   font-weight: bold;
