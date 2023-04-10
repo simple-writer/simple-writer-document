@@ -1,5 +1,6 @@
 turbook-view{
   display: block;
+  --main:#00baff;
 }
 turbook-view .toc{
   width: 300px;
@@ -15,6 +16,8 @@ turbook-view .page{
   float: left;
   overflow: auto;
   scroll-behavior: smooth;
+  padding: 20px;
+  box-sizing: border-box;
 }
 turbook-view .toc>ul{
   margin-left: 10px;
@@ -48,10 +51,10 @@ turbook-view .loading::after{
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  box-shadow: -10px -10px 0 #f2b500,
-              -10px 10px 0 #f2b500,
-              10px 10px 0 #f2b500,
-              10px -10px 0 #f2b500
+  box-shadow: -10px -10px 0 var(--main),
+              -10px 10px 0 var(--main),
+              10px 10px 0 var(--main),
+              10px -10px 0 var(--main)
               ;
   animation: lip .5s linear;
   transform-origin: center center;
@@ -62,4 +65,44 @@ turbook-view .loading::after{
   }100%{
     transform: rotate(360deg);
   }
+}
+
+.markdown-body {
+  font-size: 17px;
+  line-height: 30px;
+  font-family: inherit;
+  background-color: inherit;
+}
+
+.markdown-body a[href] {
+  color: var(--main, #00baff);
+  position: relative;
+  text-decoration: none;
+}
+
+
+.markdown-body a[href]::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -3px;
+  right: -3px;
+  background: var(--main);
+  height: 2px;
+  border-radius: 3px;
+  transition: height .1s linear;
+  opacity: 0.2;
+}
+
+.markdown-body a[href]:hover::before {
+  height: 100%;
+}
+
+.markdown-body :where(h1, h2, h3, h4, h5, h6) {
+  color: var(--main);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+}
+
+.markdown-body blockquote {
+  border-color: var(--main);
 }

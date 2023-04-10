@@ -101,7 +101,7 @@ var TurBook = {
         window.location.href = this.href;
         page.innerHTML = '<div class="loading"></div>';
         return fetch(this.getAttribute('data-md')).then(res => res.text()).then(res => {
-          page.innerHTML = marked.marked(res);
+          page.innerHTML = '<div class="markdown-body">'+marked.marked(res)+'</div>';
           
           var toc=document.createElement('ul');
           toc.classList.add('activeToc');
